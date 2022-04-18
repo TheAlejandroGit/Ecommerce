@@ -26,37 +26,47 @@ const Home = () => {
 
     return (
         <div>
-            <h1>Home</h1>
-            <form onSubmit={searchProducts}>
-                <input type="text" placeholder='Search product for headline' value={productName} onChange={e=>setProductName(e.target.value)}/>
-                <button>Search</button>
-            </form>
+            <div className='search'>
+                <form onSubmit={searchProducts}>
+                    <input type="text" placeholder='Search product for headline' value={productName} onChange={e=>setProductName(e.target.value)}/>
+                    <button>Search</button>
+                </form>
+            </div>
 
-            {
-                categories.map(category=>(
-                    <button key={category.id} onClick={()=>dispatch(filterCategoryThunk(category.id))}>{category.name}</button>
-                ))
-            }
+            <main>
 
+                <div className='categories'>
 
+                    {
+                        categories.map(category=>(
+                            <button key={category.id} onClick={()=>dispatch(filterCategoryThunk(category.id))}>{category.name}</button>
+                        ))
+                    }
+                </div>
 
-            <ul>
-                {
-                    products.length===0 ? (
-                        <p>We didn't found the product with those filters</p>
-                    ):(
-                    products.map((product)=>(
-                      <Link to={`/product/${product.id}`}key={product.id}>  
-                      <li> 
-                           <h3> {product.title}</h3>
-                            <img src={product.productImgs[0]} alt="" />
-                        </li>
-                      </Link>
+                <div className='products'>
+                    <ul>
+                        {
+                            products.length===0 ? (
+                                <p>We didn't found the product with those filters</p>
+                            ):(
+                            products.map((product)=>(
+                            <Link to={`/product/${product.id}`}key={product.id}>  
+                            <li> 
+                                <div className='image'>
+                                    <img src={product.productImgs[0]} alt="" />
+                                    <h3> {product.title}</h3>
+                                </div>
+                            </li>
+                            </Link>
+                                
+                                )))
+                        }
                         
-                        )))
-                }
-                
-            </ul>
+                    </ul>
+                </div>
+            </main>
+
         </div>
     );
 };
