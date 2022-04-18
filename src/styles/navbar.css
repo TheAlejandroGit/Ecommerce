@@ -1,4 +1,13 @@
 
+a{
+        text-decoration: none;
+        color:black;
+}
+      
+a:visited{
+color:black;
+}
+
 nav{
         display: flex;
         
@@ -8,13 +17,14 @@ nav div{
     color: #f85555;
     display: block;
     flex: 1 1;
-    font-size: 1.5rem;
+    font-size: 2.0rem;
     font-weight: 700;
     padding: 14px 20px;
     border: 1px;
     border-right-style: solid;
     border-bottom-style: solid;
     border-color: rgba(0,0,0,0.2);
+    text-align: left;
 }
 
 nav button{
@@ -36,9 +46,6 @@ nav button:hover{
         cursor: pointer;
 }
 
-.search{
-        margin: 30px;
-}
 
 main{
         display: flex;
@@ -56,12 +63,21 @@ main{
 
 .products ul li{
     width: 50%;
-    border: 10px;
+    border: 2px;
     border-style: solid;
    border-color: rgba(0,0,0,0.2);
    margin: 10px;
+   min-width: 250px;
+  max-width: 250px;
+  border-radius: 5px;
+ 
 
         
+}
+
+.products ul li:hover{
+        transform: scale(1.1);
+  transition: 100ms linear;
 }
 
 .image{
@@ -70,7 +86,8 @@ main{
 }
 
 .image img{
-        width: 10%;
+        width: 50%;
+        height: 50%;
 }
 
 .navbar{

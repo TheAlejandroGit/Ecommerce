@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { filterCategoryThunk, filterProductNameThunk, getCategoriesThunk, getProductsThunk } from '../redux/actions';
+import "../App.css"
 
 const Home = () => {
     const dispatch=useDispatch();
@@ -28,14 +29,15 @@ const Home = () => {
         <div>
             <div className='search'>
                 <form onSubmit={searchProducts}>
-                    <input type="text" placeholder='Search product for headline' value={productName} onChange={e=>setProductName(e.target.value)}/>
-                    <button>Search</button>
+                    <input type="text" placeholder='What are you looking for?' value={productName} onChange={e=>setProductName(e.target.value)}/>
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
 
             <main>
 
                 <div className='categories'>
+                    <h3>Category</h3>
 
                     {
                         categories.map(category=>(
@@ -54,8 +56,9 @@ const Home = () => {
                             <Link to={`/product/${product.id}`}key={product.id}>  
                             <li> 
                                 <div className='image'>
-                                    <img src={product.productImgs[0]} alt="" />
-                                    <h3> {product.title}</h3>
+                                    <img src={product.productImgs[0]} alt="" className='it' />
+                                    <h3 className='it'> {product.title}</h3>
+                                    <p className='it'><b>Price:</b> ${product.price}</p>
                                 </div>
                             </li>
                             </Link>
@@ -66,6 +69,10 @@ const Home = () => {
                     </ul>
                 </div>
             </main>
+
+            <footer>
+
+            </footer>
 
         </div>
     );
