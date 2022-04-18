@@ -14,6 +14,7 @@ const Shop = () => {
 
     const[productsFiltered, setProductsFiltered]= useState([]);
     const[quantity, setQuantity]=useState(0);
+    
 
 
    
@@ -61,10 +62,13 @@ const Shop = () => {
                     <div className='number it'>
                         <p><b>Price:</b> {productFound?.price}</p>
                         <label htmlFor="quantity">  <b>Quantity: </b> </label>
-                        <input type="text" id='quantity' value={quantity} onChange={e=>setQuantity(e.target.value)}/>
+                      <button onClick={() => quantity>0 && setQuantity(quantity - 1)}><i class="fa-solid fa-minus"></i></button>  
+                      <input type="number" id='quantity' value={quantity} onChange={e=>setQuantity(e.target.value)} disabled/>
+                      <button onClick={() => setQuantity(quantity + 1)}><i class="fa-solid fa-plus"></i></button>
                     </div>
-                    <button onClick={addCart}>Add to cart <i class="fa-solid fa-cart-shopping" className='it'></i></button>
-
+                    <button onClick={addCart}className='it add'>Add to cart <i class="fa-solid fa-cart-shopping" ></i></button>
+                    
+                    
                 </div>
 
                     

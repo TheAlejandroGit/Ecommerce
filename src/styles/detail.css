@@ -21,7 +21,9 @@ ul{
     display: flex;
     justify-content: space-around;
 
+
 }
+
 
 .similar{
     margin: 50px;
@@ -67,7 +69,7 @@ ul{
 
 }
 
-.pInfo button {
+.pInfo .add {
     background: #f85555;
     color: #fff;
     font-size: 1.1rem;
@@ -82,4 +84,26 @@ ul{
 .number{
     display: flex;
     justify-content: space-around;
+}
+
+.number button{
+    background: none;
+    height: 30px;
+    line-height: 1.9;
+    width: 30px;
+    color: gray;
+    border: 2px;
+    border-color: gray;
+    border-style: solid;
+    text-align: center;
+    margin: auto;
+    align-items: center;
+}
+
+.number input{
+    width: 40px;
+    height: 30px;
+    border: none;
+    text-align: center;
+    margin: 0;
 }
