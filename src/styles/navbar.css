@@ -10,6 +10,7 @@ color:black;
 
 nav{
         display: flex;
+        margin-bottom: 20px;
         
 }
 
@@ -25,6 +26,10 @@ nav div{
     border-bottom-style: solid;
     border-color: rgba(0,0,0,0.2);
     text-align: left;
+}
+
+nav div:hover{
+        cursor: pointer;
 }
 
 nav button{
@@ -96,7 +101,6 @@ main{
 
 .login{
         box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-        max-height: 90vh;
         padding: 20px;
         position: absolute;
         transform: scale(0);
@@ -104,11 +108,49 @@ main{
         transform-origin: top;
         transition: .5s ease-in-out;
         width: 300px;
-        right: 20px;
+        top: 70px;
+        right: 300px;
         
        
     }
 
 .login .open{
         transform: scale(1);
+    }
+
+    .lg{
+            display: flex;
+            flex-direction: column;
+    }
+
+    .lg button{
+        background: #f85555;
+        color: #fff;
+        margin: 10px 0 25px;
+        padding: 9px;
+        width: 100%;
+        cursor: pointer;
+        outline: none;
+        border: none;
+    }
+
+    .lg input{
+        border: 1px solid rgba(0,0,0,.2);
+        border-radius: 3px;
+        display: block;
+        margin-top: 4px;
+        padding: 6px 8px;
+        width: 100%;
+        outline: none;
+    }
+
+    .lo{
+        background: #f85555;
+        color: #fff;
+        margin: 10px 0 25px;
+        padding: 9px;
+        width: 100%;
+        cursor: pointer;
+        outline: none;
+        border: none;  
     }

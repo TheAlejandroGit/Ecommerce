@@ -49,17 +49,22 @@ const NavBar = () => {
                 <form onSubmit={login} className={`login ${isLoginOpen? "open": ""}`}>
                     {
                     localStorage.getItem("token")  ? (
-                    <button onClick={()=>localStorage.setItem("token","")} type="button"  >
+                    <button onClick={()=>localStorage.setItem("token","")} type="button" className='it lo' >
                         Log out
                     </button>
                     ):(
-                    <>
+                    <div className='lg'>
+                        <div className="it">
+                            <h3>Test Data</h3>
+                            <p> <i class="fa-solid fa-envelope"></i> john@gmail.com</p>
+                            <p> <i class="fa-solid fa-lock"></i> john1234</p>
 
-                    <input type="email" value={email} onChange={e=> setEmail(e.target.value)} placeholder='email' />
-                    <input type="password" value={password} onChange={e=> setPassword(e.target.value)} placeholder='password' />
-                    <button>Submit</button>
-                 <p>{loginError}</p>  
-                 </> 
+                        </div>
+                        <input type="email" value={email} onChange={e=> setEmail(e.target.value)} placeholder='email' className='it'/>
+                        <input type="password" value={password} onChange={e=> setPassword(e.target.value)} placeholder='password' className='it'/>
+                        <button>Login</button>
+                        <p>{loginError}</p>  
+                   </div> 
                  )
                  }
                 </form>

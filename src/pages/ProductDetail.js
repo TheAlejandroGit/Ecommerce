@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { addCartThunk, getProductsThunk } from '../redux/actions';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import "../styles/detail.css"
 
 const Shop = () => {
     const {id}= useParams();
@@ -43,34 +44,59 @@ const Shop = () => {
 
    
     return (
-        <div>
+        <>
+        <div className='container'>
 
-            <div className="cart">
-                <div className="container">
-                    <label htmlFor="quantity"> Quantity</label>
-                    <input type="text" id='quantity' value={quantity} onChange={e=>setQuantity(e.target.value)}/>
-                    <button onClick={addCart}>Add Cart</button>
+                <div className='pFound'>
+                    <div>
+                         <img src={productFound?.productImgs} alt="" />
+                    </div>
+
+                    
+                        
+                <div className="pInfo">
+                    <h1 className='it'>{productFound?.title}</h1>
+                    <p className='it'>{productFound?.description}</p>
+                    
+                    <div className='number it'>
+                        <p><b>Price:</b> {productFound?.price}</p>
+                        <label htmlFor="quantity">  <b>Quantity: </b> </label>
+                        <input type="text" id='quantity' value={quantity} onChange={e=>setQuantity(e.target.value)}/>
+                    </div>
+                    <button onClick={addCart}>Add to cart <i class="fa-solid fa-cart-shopping" className='it'></i></button>
 
                 </div>
 
-            </div>
+                    
 
-            <h1>{productFound?.title}</h1>
-            <img src={productFound?.productImgs} alt="" />
+                    
+                    
+                </div>
 
-            <ul>
-                {
-                    productsFiltered.map(product=>(
-                        <Link to={`/product/${product.id}`}key={product.id}>  
-                        <li> 
-                             <h3> {product.title}</h3>
-                              <img src={product.productImgs[0]} alt="" />
-                          </li>
-                        </Link>
-                    ))
-                }
-            </ul>
+                <div className='similar'>
+                        <h3>Discover similar items</h3>
+                        <ul>
+                            {
+                                productsFiltered.map(product=>(
+                                    <Link to={`/product/${product.id}`}key={product.id}>  
+                                    <li> 
+                                        <div className='image'>
+                                            <img src={product.productImgs[0]} alt="" className='it' />
+                                            <h3 className='it'> {product.title}</h3>
+                                            <p className='it'><b>Price: </b> ${product.price}</p>
+                                            
+                                        </div>
+                                    </li>
+                                    </Link>
+                                ))
+                            }
+                        </ul>
+                </div>
+                
+                
         </div>
+        <footer></footer>
+        </>
     );
 };
 
